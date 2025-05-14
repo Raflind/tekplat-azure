@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kata - Kata Hari Ini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4ff;
+      color: #222;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 2vh 4vw;
+    }
+
+    .title {
+      font-size: clamp(2.8rem);
+      font-weight: bold;
+    }
+
+    img {
+      width: 35vw;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .katanya {
+      font-size: clamp(1.8rem);
+      color: #2c66b8;
+      font-weight: bold;
+      margin-top: 1.5vh;
+    }
+
+    .motd {
+      font-size: clamp(1.5rem);
+      max-width: 80vw;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 2rem;
+      }
+
+      img {
+        width: 70vw;
+      }
+
+      .katanya {
+        font-size: 1.3rem;
+      }
+
+      .motd {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Apa Kata Furina?</div>
+
+  <img src="/static/image/furina.gif" alt="Furina (Focalors)">
+
+  <div class="katanya">Katanya:</div>
+  
+  <div class="motd">"{{ motd }}"</div>
+</body>
+</html>
