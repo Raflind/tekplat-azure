@@ -74,10 +74,26 @@
 <body>
   <div class="title">Apa Kata Furina?</div>
 
-  <img src="/static/image/furina.gif" alt="Furina (Focalors)">
+  <img id="motd-image" src="" alt="Furina (Focalors)">
 
   <div class="katanya">Katanya:</div>
   
-  <div class="motd">"{{ motd }}"</div>
+  <div id="motd-text" class="motd">Memuat kata-kata...</div>
+
+  <script>
+    async function loadMotd() {
+      try {
+        const response = await fetch("https://tekplat.azurewebsites.net/api/motd?");
+        const data = await response.json();
+        document.getElementById("motd-text").textContent = `"${data.motd}"`;
+        document.getElementById("motd-image").src = data.imageUrl;
+      } catch (error) {
+        document.getElementById("motd-text").textContent = "Gagal memuat kata-kata.";
+        console.error("Error loading MOTD:", error);
+      }
+    }
+
+    loadMotd();
+  </script>
 </body>
 </html>
